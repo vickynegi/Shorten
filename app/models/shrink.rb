@@ -23,7 +23,9 @@ class Shrink < ApplicationRecord
 
   def make_properurl
     org_name = self.originalname.downcase.strip.gsub %r{(?<!:)/+(?=/)}, '' # removing all repeatitive forward slash such as www.////facebook.com//hi/s//234//
-    org_name = org_name.gsub(/(https?:\/\/)|(www\.)/,"") # removing https:// or http:// from the url
+    org_name = org_name.gsub(/(https?:\/\/)|(www\.)/,"")      # removing  https:// or http:// from the url
+    # removing slash in last position after com such as: www.google.com/ or google.com/
+    org_name.slice!(-1) if org_name[-1] == "/"
     if org_name.include?(".com") # if url is google or www.google
       self.proper_url = "https://www." + org_name
     else
