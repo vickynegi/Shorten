@@ -1,0 +1,23 @@
+<h1>Editing Shrink</h1>
+<%= form_with(model: @shrink, local: true) do |form| %>
+  <% if @shrink.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shrink.errors.count, "error") %> prohibited this shrink from being saved:</h2>
+
+      <ul>
+      <% @shrink.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.text_field :originalname %>
+    <%= form.submit %>
+
+  </div>
+<% end %>
+
+<%= link_to 'Show', @shrink %> |
+<%= link_to 'Back', shrinks_path %>
