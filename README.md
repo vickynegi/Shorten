@@ -7,7 +7,7 @@ Things you may want to cover:
 
 
 * Ruby version - 2.4.2
-* Rails version - 5.0.7.2
+* Rails version - 5.2.3
 * just hit the url localhost:3000/shrinks/new
 * PostgreSql is the database
 
